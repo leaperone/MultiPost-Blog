@@ -19,7 +19,7 @@ const locales = [
   },
 ];
 
-export default async function RootLayout({
+export default async function Layout({
   params,
   children,
 }: {
@@ -29,18 +29,14 @@ export default async function RootLayout({
   const lang = (await params).lang;
 
   return (
-    <html lang={lang}>
-      <body>
-        <RootProvider
-          i18n={{
-            locale: lang,
-            locales,
-            translations: { cn }[lang],
-          }}
-        >
-          {children}
-        </RootProvider>
-      </body>
-    </html>
+    <RootProvider
+      i18n={{
+        locale: lang,
+        locales,
+        translations: { cn }[lang],
+      }}
+    >
+      {children}
+    </RootProvider>
   );
 }

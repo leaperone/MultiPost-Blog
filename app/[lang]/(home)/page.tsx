@@ -1,8 +1,25 @@
 import Link from 'next/link';
 import { source } from '@/lib/source';
 
-export default function HomePage() {
-  const blogs = source.getPages();
+// i18n文本
+const texts = {
+  en: {
+    noBlogsMessage: "No blog posts yet"
+  },
+  zh: {
+    noBlogsMessage: "暂时还没有博客文章"
+  }
+} as const;
+
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const lang = (await params).lang as keyof typeof texts;
+  // 获取指定语言的页面
+  const blogs = source.getPages(lang);
+  const t = texts[lang] || texts.en;
 
   return (
     <main className="flex flex-1 flex-col px-6 py-8">
@@ -10,7 +27,7 @@ export default function HomePage() {
         
         {blogs.length === 0 ? (
           <p className="text-fd-muted-foreground">
-            暂时还没有博客文章
+            {t.noBlogsMessage}
           </p>
         ) : (
           <div className="grid md:grid-cols-2 gap-8 md:gap-12">
@@ -22,7 +39,7 @@ export default function HomePage() {
               >
                 <article>
                   <h2 className="text-2xl font-semibold text-fd-foreground">
-                    {blog.data.title || '无标题'}
+                    {blog.data.title || (lang === 'zh' ? '无标题' : 'Untitled')}
                   </h2>
                   
                   {blog.data.description && (
