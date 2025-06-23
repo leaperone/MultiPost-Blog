@@ -2,6 +2,7 @@ import { DocsLayout } from "fumadocs-ui/layouts/docs";
 import type { ReactNode } from "react";
 import { baseOptions } from "@/app/layout.config";
 import { source } from "@/lib/source";
+import { HomeLayout } from "fumadocs-ui/layouts/home";
 
 export default async function Layout({
   children,
@@ -12,12 +13,14 @@ export default async function Layout({
 }) {
   const lang = (await params).lang;
   return (
-    <DocsLayout
-      tree={source.pageTree[lang]}
-      sidebar={{ enabled: false }}
-      {...baseOptions(lang)}
-    >
-      {children}
-    </DocsLayout>
+    <HomeLayout {...baseOptions(lang)}>
+      <DocsLayout
+        tree={source.pageTree[lang]}
+        sidebar={{ enabled: false }}
+        {...baseOptions(lang)}
+      >
+        {children}
+      </DocsLayout>
+    </HomeLayout>
   );
 }
