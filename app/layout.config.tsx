@@ -1,5 +1,6 @@
-import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
-import Image from 'next/image';
+import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
+import Image from "next/image";
+import { i18n } from "@/lib/i18n";
 
 /**
  * Shared layout configurations
@@ -8,7 +9,7 @@ import Image from 'next/image';
  * Home Layout: app/(home)/layout.tsx
  * Docs Layout: app/docs/layout.tsx
  */
-export const baseOptions: BaseLayoutProps = {
+export const baseOptions = (lang: string): BaseLayoutProps => ({
   nav: {
     title: (
       <>
@@ -16,7 +17,10 @@ export const baseOptions: BaseLayoutProps = {
         MultiPost Blog
       </>
     ),
+    enabled: true,
+    url: `/${lang}`,
   },
   // see https://fumadocs.dev/docs/ui/navigation/links
   links: [],
-};
+  i18n: i18n,
+});
