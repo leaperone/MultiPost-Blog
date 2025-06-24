@@ -6,8 +6,11 @@ const texts = {
   en: {
     noBlogsMessage: "No blog posts yet"
   },
-  zh: {
+  'zh-Hans': {
     noBlogsMessage: "暂时还没有博客文章"
+  },
+  'zh-Hant': {
+    noBlogsMessage: "暫時還沒有部落格文章"
   }
 } as const;
 
@@ -39,7 +42,7 @@ export default async function HomePage({
               >
                 <article>
                   <h2 className="text-2xl font-semibold text-fd-foreground">
-                    {blog.data.title || (lang === 'zh' ? '无标题' : 'Untitled')}
+                    {blog.data.title || (lang === 'zh-Hans' ? '无标题' : 'Untitled')}
                   </h2>
                   
                   {blog.data.description && (

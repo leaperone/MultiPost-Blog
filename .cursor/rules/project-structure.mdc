@@ -1,0 +1,47 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# 项目结构总览
+
+```plaintext
+MultiPost-Blog/
+├── app/
+│   ├── [lang]/
+│   │   ├── (home)/
+│   │   │   ├── layout.tsx
+│   │   │   └── page.tsx
+│   │   ├── api/
+│   │   │   └── search/
+│   │   │       └── route.ts
+│   │   ├── blog/
+│   │   │   ├── [[...slug]]/
+│   │   │   │   └── page.tsx
+│   │   │   └── layout.tsx
+│   │   └── layout.tsx
+│   ├── favicon.ico
+│   ├── favicon.png
+│   ├── global.css
+│   ├── layout.config.tsx
+│   └── layout.tsx
+├── content/
+│   └── docs/
+│       ├── introducing-multipost.mdx
+│       └── introducing-multipost.zh.mdx
+├── lib/
+│   ├── i18n.ts
+│   └── source.ts
+├── mdx-components.tsx
+├── middleware.ts
+├── next.config.mjs
+├── package.json
+├── postcss.config.mjs
+├── pnpm-lock.yaml
+├── pnpm-workspace.yaml
+├── README.md
+├── source.config.ts
+└── tsconfig.json
+```
+
+> 仅展示了业务相关的主目录和关键文件，省略了如 .next/、.github/、node_modules/ 等辅助或构建相关目录。

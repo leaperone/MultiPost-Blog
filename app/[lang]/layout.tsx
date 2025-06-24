@@ -3,7 +3,10 @@ import type { Translations } from 'fumadocs-ui/i18n';
 
 // translations
 const cn: Partial<Translations> = {
-  search: 'Translated Content',
+  search: '搜索内容',
+};
+const zhHant: Partial<Translations> = {
+  search: '搜尋內容',
 };
 
 // available languages that will be displayed on UI
@@ -14,8 +17,12 @@ const locales = [
     locale: 'en',
   },
   {
-    name: 'Chinese',
-    locale: 'zh',
+    name: '简体中文',
+    locale: 'zh-Hans',
+  },
+  {
+    name: '繁體中文',
+    locale: 'zh-Hant',
   },
 ];
 
@@ -33,7 +40,7 @@ export default async function Layout({
       i18n={{
         locale: lang,
         locales,
-        translations: { cn }[lang],
+        translations: { 'zh-Hans': cn, 'zh-Hant': zhHant }[lang],
       }}
     >
       {children}
