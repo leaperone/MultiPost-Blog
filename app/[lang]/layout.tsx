@@ -9,14 +9,30 @@ const zhHant: Partial<Translations> = {
   search: '搜尋內容',
 };
 
-const ja: Partial<Translations> = {};
-const fr: Partial<Translations> = {};
-const es: Partial<Translations> = {};
-const pt: Partial<Translations> = {};
-const ko: Partial<Translations> = {};
-const ms: Partial<Translations> = {};
-const id: Partial<Translations> = {};
-const ru: Partial<Translations> = {};
+const ja: Partial<Translations> = {
+  search: '検索',
+};
+const fr: Partial<Translations> = {
+  search: 'Rechercher',
+};
+const es: Partial<Translations> = {
+  search: 'Buscar',
+};
+const pt: Partial<Translations> = {
+  search: 'Pesquisar',
+};
+const ko: Partial<Translations> = {
+  search: '검색',
+};
+const ms: Partial<Translations> = {
+  search: 'Cari',
+};
+const id: Partial<Translations> = {
+  search: 'Cari',
+};
+const ru: Partial<Translations> = {
+  search: 'Поиск',
+};
 
 // available languages that will be displayed on UI
 // make sure `locale` is consistent with your i18n config
