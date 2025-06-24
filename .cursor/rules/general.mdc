@@ -5,6 +5,9 @@ alwaysApply: true
 ---
 This project is a Fumadocs.
 
+## Writing
+中文使用全角符号
+
 ## i18n
 When user want to create a new article, you should try to write the first article in English as a default. 
 Only when user require to finish the i18n, Then you should complete all other language.

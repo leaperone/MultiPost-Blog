@@ -27,8 +27,9 @@ MultiPost-Blog/
 │   └── layout.tsx
 ├── content/
 │   └── docs/
-│       ├── introducing-multipost.mdx
-│       └── introducing-multipost.zh.mdx
+│       └── introducing-multipost/
+│           ├── index.mdx
+│           └── index.zh-Hans.mdx
 ├── lib/
 │   ├── i18n.ts
 │   └── source.ts
