@@ -9,6 +9,15 @@ const zhHant: Partial<Translations> = {
   search: '搜尋內容',
 };
 
+const ja: Partial<Translations> = {};
+const fr: Partial<Translations> = {};
+const es: Partial<Translations> = {};
+const pt: Partial<Translations> = {};
+const ko: Partial<Translations> = {};
+const ms: Partial<Translations> = {};
+const id: Partial<Translations> = {};
+const ru: Partial<Translations> = {};
+
 // available languages that will be displayed on UI
 // make sure `locale` is consistent with your i18n config
 const locales = [
@@ -23,6 +32,38 @@ const locales = [
   {
     name: '繁體中文',
     locale: 'zh-Hant',
+  },
+  {
+    name: '日本語',
+    locale: 'ja',
+  },
+  {
+    name: 'Français',
+    locale: 'fr',
+  },
+  {
+    name: 'Español',
+    locale: 'es',
+  },
+  {
+    name: 'Português',
+    locale: 'pt',
+  },
+  {
+    name: '한국어',
+    locale: 'ko',
+  },
+  {
+    name: 'Bahasa Melayu',
+    locale: 'ms',
+  },
+  {
+    name: 'Bahasa Indonesia',
+    locale: 'id',
+  },
+  {
+    name: 'Русский',
+    locale: 'ru',
   },
 ];
 
@@ -40,7 +81,18 @@ export default async function Layout({
       i18n={{
         locale: lang,
         locales,
-        translations: { 'zh-Hans': cn, 'zh-Hant': zhHant }[lang],
+        translations: {
+          'zh-Hans': cn,
+          'zh-Hant': zhHant,
+          ja,
+          fr,
+          es,
+          pt,
+          ko,
+          ms,
+          id,
+          ru,
+        }[lang],
       }}
     >
       {children}

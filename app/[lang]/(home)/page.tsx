@@ -11,6 +11,30 @@ const texts = {
   },
   'zh-Hant': {
     noBlogsMessage: "暫時還沒有部落格文章"
+  },
+  ja: {
+    noBlogsMessage: "まだブログ記事がありません"
+  },
+  fr: {
+    noBlogsMessage: "Aucun article de blog pour le moment"
+  },
+  es: {
+    noBlogsMessage: "Aún no hay publicaciones en el blog"
+  },
+  pt: {
+    noBlogsMessage: "Ainda não há postagens no blog"
+  },
+  ko: {
+    noBlogsMessage: "아직 블로그 글이 없습니다"
+  },
+  ms: {
+    noBlogsMessage: "Belum ada catatan blog lagi"
+  },
+  id: {
+    noBlogsMessage: "Belum ada postingan blog"
+  },
+  ru: {
+    noBlogsMessage: "Пока нет записей в блоге"
   }
 } as const;
 
