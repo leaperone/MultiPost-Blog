@@ -6,7 +6,18 @@ alwaysApply: true
 This project is a Fumadocs.
 
 ## i18n
-1. 英文：xxx.mdx
-2. 简体中文：xxx.zh-Hans.mdx
-3. 繁体中文：xxx.zh-Hant.mdx
-4. 
+When user want to create a new article, you should try to write the first article in English as a default. 
+Only when user require to finish the i18n, Then you should complete all other language.
+
+### i18n language
+1. 英文: xxx.mdx
+2. 简体中文: xxx.zh-Hans.mdx
+3. 繁体中文: xxx.zh-Hant.mdx
+4. Japanese: xxx.ja.mdx
+5. Korean: xxx.ko.mdx
+6. French: xxx.fr.mdx
+7. Spanish: xxx.es.mdx
+8. Portuguese: xxx.pt.mdx
+9. Malay: xxx.ms.mdx
+10. Indonesian: xxx.id.mdx
+11. Russian: xxx.ru.mdx 

@@ -8,6 +8,19 @@ URL: /docs/ui/internationalization
 Source: https://raw.githubusercontent.com/fuma-nama/fumadocs/refs/heads/main/apps/docs/content/docs/ui/internationalization.mdx
 
 Support multiple languages in your documentation
+
+## i18n
+1. 英文: xxx.mdx
+2. 简体中文: xxx.zh-Hans.mdx
+3. 繁体中文: xxx.zh-Hant.mdx
+4. Japanese: xxx.ja.mdx
+5. Korean: xxx.ko.mdx
+6. French: xxx.fr.mdx
+7. Spanish: xxx.es.mdx
+8. Portuguese: xxx.pt.mdx
+9. Malay: xxx.ms.mdx
+10. Indonesian: xxx.id.mdx
+11. Russian: xxx.ru.mdx 
         
 ## Overview
 
