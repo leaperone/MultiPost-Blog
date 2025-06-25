@@ -1,7 +1,7 @@
 ---
-description: 
+description: when need add meta
 globs: 
-alwaysApply: true
+alwaysApply: false
 ---
 # Fumadocs Framework: Metadata
 URL: /docs/ui/open-graph
@@ -14,7 +14,7 @@ Usage with Next.js Metadata API
 Next.js provides an useful set of utilities, allowing a flexible experience with Fumadocs.
 Fumadocs uses the Next.js Metadata API for SEO.
 
-Make sure to read their [Metadata section](https://nextjs.org/docs/app/building-your-application/optimizing/metadata) for the fundamentals of Metadata API.
+Make sure to read their [Metadata section](mdc:https:/nextjs.org/docs/app/building-your-application/optimizing/metadata) for the fundamentals of Metadata API.
 
 ## Open Graph Image
 
