@@ -66,6 +66,20 @@ export default async function HomePage({
   params: Promise<{ lang: string }>;
 }) {
   const lang = (await params).lang as keyof typeof texts;
+  // 支持的语言及显示名
+  const languages = [
+    { code: 'en', label: 'English' },
+    { code: 'zh-Hans', label: '简体中文' },
+    { code: 'zh-Hant', label: '繁體中文' },
+    { code: 'ja', label: '日本語' },
+    { code: 'fr', label: 'Français' },
+    { code: 'es', label: 'Español' },
+    { code: 'pt', label: 'Português' },
+    { code: 'ko', label: '한국어' },
+    { code: 'ms', label: 'Melayu' },
+    { code: 'id', label: 'Bahasa Indonesia' },
+    { code: 'ru', label: 'Русский' },
+  ];
   // 获取指定语言的页面
   const allBlogs = source.getPages(lang);
   
@@ -89,7 +103,22 @@ export default async function HomePage({
   return (
     <main className="flex flex-1 flex-col px-6 py-8">
       <div className="max-w-6xl mx-auto w-full">
-        
+        {/* 多语言快捷跳转栏 */}
+        <nav className="flex flex-wrap gap-2 mb-8">
+          {languages.map((item) => (
+            <Link
+              key={item.code}
+              href={`/${item.code}`}
+              className={`px-3 py-1 rounded-md text-sm transition-colors ${
+                lang === item.code
+                  ? 'bg-fd-primary text-fd-primary-foreground'
+                  : 'bg-fd-secondary text-fd-secondary-foreground hover:bg-fd-accent'
+              }`}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
         {blogs.length === 0 ? (
           <p className="text-fd-muted-foreground">
             {t.noBlogsMessage}
