@@ -18,19 +18,55 @@ export default async function Page(props: {
 
   const MDXContent = page.data.body;
 
+  const langPrefix = params.lang === 'en' ? '' : `/${params.lang}`;
+  const url = `https://blog.multipost.app${langPrefix}/blog/${params.slug?.join('/') || ''}`;
+  const publishedTime = page.data.date ? new Date(page.data.date).toISOString() : new Date().toISOString();
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: page.data.title,
+    description: page.data.description,
+    image: 'https://blog.multipost.app/og-image.png',
+    datePublished: publishedTime,
+    dateModified: publishedTime,
+    author: {
+      '@type': 'Person',
+      name: page.data.author || 'MultiPost Team',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'MultiPost',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://blog.multipost.app/og-image.png',
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': url,
+    },
+  };
+
   return (
-    <DocsPage toc={page.data.toc} full={page.data.full}>
-      <DocsTitle>{page.data.title}</DocsTitle>
-      <DocsDescription>{page.data.description}</DocsDescription>
-      <DocsBody>
-        <MDXContent
-          components={getMDXComponents({
-            // this allows you to link to other pages with relative file paths
-            a: createRelativeLink(source, page),
-          })}
-        />
-      </DocsBody>
-    </DocsPage>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <DocsPage toc={page.data.toc} full={page.data.full}>
+        <DocsTitle>{page.data.title}</DocsTitle>
+        <DocsDescription>{page.data.description}</DocsDescription>
+        <DocsBody>
+          <MDXContent
+            components={getMDXComponents({
+              // this allows you to link to other pages with relative file paths
+              a: createRelativeLink(source, page),
+            })}
+          />
+        </DocsBody>
+      </DocsPage>
+    </>
   );
 }
 
@@ -45,8 +81,42 @@ export async function generateMetadata(props: {
   const page = source.getPage(params.slug, params.lang);
   if (!page) notFound();
 
+  const langPrefix = params.lang === 'en' ? '' : `/${params.lang}`;
+  const url = `https://blog.multipost.app${langPrefix}/blog/${params.slug?.join('/') || ''}`;
+  const publishedTime = page.data.date ? new Date(page.data.date).toISOString() : undefined;
+
   return {
     title: page.data.title,
     description: page.data.description,
+    keywords: page.data.keywords,
+    authors: page.data.author ? [{ name: page.data.author }] : [{ name: 'MultiPost Team' }],
+    openGraph: {
+      type: 'article',
+      locale: params.lang === 'zh-Hans' ? 'zh_CN' : 'en_US',
+      url: url,
+      title: page.data.title,
+      description: page.data.description,
+      siteName: 'MultiPost Blog',
+      images: [
+        {
+          url: '/og-image.png',
+          width: 1200,
+          height: 630,
+          alt: page.data.title,
+        },
+      ],
+      publishedTime,
+      authors: page.data.author ? [page.data.author] : ['MultiPost Team'],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: page.data.title,
+      description: page.data.description,
+      images: ['/twitter-image.png'],
+      creator: '@multipost_app',
+    },
+    alternates: {
+      canonical: url,
+    },
   };
 }
